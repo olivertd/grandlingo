@@ -11,7 +11,7 @@
   }
   
 
-  /* Allt nedanför är för container 2 (landing page) */
+  /* Allt nedanför är för container 1 (landing page) */
 
   .container1 {
     display: grid;
@@ -128,6 +128,13 @@
 }
 
 
+@media (max-width: 720px){
+  .parent-container1 .div1 {
+    grid-area: 1 / 1 / 2 / 6;
+  }
+
+}
+
   /* Allt nedanför är för container 2 (info page) */
   
   .container2 {
@@ -185,6 +192,54 @@
     background-image: linear-gradient(to bottom right, #8ee000, #078a2a);
     color: #fff;
     transform: translateY(-5px);
+  }
+
+  @media (max-width: 1440px){
+    .card {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 1030px){
+    .card {
+      font-size: 11px;
+    }
+  }
+
+  @media (max-width: 720px){
+    .container1 {
+      height: auto;
+    }
+    .container2 {
+      height: auto;
+    }
+    .parent-container2 {
+      display: grid;
+      height: auto;
+      margin: 20px;
+      align-content: center;
+      grid-template-areas: 
+        "e e"
+        "a b"
+        "c d";
+      grid-template-rows: auto 200px 200px;
+      grid-template-columns: 1fr 1fr;
+    }
+    .parent-container2 .div1{
+      grid-area: a;
+    }
+    .parent-container2 .div2{
+      grid-area: b;
+    }
+    .parent-container2 .div3{
+      grid-area: c;
+    }
+    .parent-container2 .div4{
+      grid-area: d;
+    }
+    .parent-container2 .div5{
+      grid-area: e;
+    }
   }
 
     /* Allt nedanför är för container 3 (själva quiz delen page) */
