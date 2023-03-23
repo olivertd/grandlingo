@@ -11,6 +11,8 @@
   }
   
 
+  /* Allt nedanför är för container 2 (landing page) */
+
   .container1 {
     display: grid;
     height: 100vh;
@@ -126,17 +128,13 @@
 }
 
 
+  /* Allt nedanför är för container 2 (info page) */
   
   .container2 {
     background-color: #1b1b1e;
     height: 100vh;
   }
   
-  .container3 {
-    background-color: #2b2b33;
-    height: 100vh;
-  }
-
   .parent-container2 { 
     display: grid; 
     grid-template-columns: repeat(6, 1fr); 
@@ -188,5 +186,13 @@
     color: #fff;
     transform: translateY(-5px);
   }
+
+    /* Allt nedanför är för container 3 (själva quiz delen page) */
+
+  .container3 {
+    background-color: #2b2b33;
+    height: 100vh;
+  }
+
   
   
