@@ -4,12 +4,12 @@
     <div class="container1">
         <div class="parent-container1"> 
             <div class="div1"> 
-                <img src="grandlingologowhite.svg" alt="GrandLingo Logo White" class="svg-logo" type="image/svg+xml">
+                <img src="@/assets/grandlingologowhite.svg" alt="GrandLingo Logo White" class="svg-logo" type="image/svg+xml">
             </div>
             <div class="div2">
             </div>
             <div class="div3"> 
-                <img src="earthicon.svg" alt="GrandLingo Earth Icon" class="svg-earthicon" type="image/svg+xml"> 
+                <img src="@/assets/earthicon.svg" alt="GrandLingo Earth Icon" class="svg-earthicon" type="image/svg+xml"> 
             </div> 
             <div class="div4"> 
                 <h2>"Grandlingo's approach to language learning is brilliant! Within just a few weeks, I was able to hold basic conversations with native Spanish speakers. The focus on the most common 1000 words was exactly what I needed to achieve fluency quickly and efficiently. I highly recommend Grandlingo to anyone who wants to learn Spanish!" - Sarah, Grandlingo user.</h2>
@@ -17,7 +17,7 @@
             </div> 
             <div class="div5">
                 <h2>Spanish</h2>
-                <img src="spanishflag.svg" alt="Spanish Flag" class="svg-spanishflag" type="image/svg+xml"> 
+                <img src="@/assets/spanishflag.svg" alt="Spanish Flag" class="svg-spanishflag" type="image/svg+xml"> 
             </div> 
             </div>
         </div>
