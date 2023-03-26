@@ -244,10 +244,15 @@
 
     /* Allt nedanför är för container 3 (själva quiz delen page) */
 
-  .container3 {
-    background-color: #2b2b33;
-    height: 100vh;
-  }
-
+    .container3 {
+      background-color: #2b2b33;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 50px;
+    }
+    
   
   
