@@ -81,8 +81,8 @@
       <button v-if="showSkipButton" class="green-button" @click="skipWord">Skip</button>
       <div v-if="showNotification" class="notification">{{ notificationMessage }}</div>
       <div v-if="showHintButton || showWordButton" class="button-group">
-        <button v-if="showHintButton" @click="getHint()">Get Hint</button>
-        <button v-if="showWordButton" @click="showWord()">Show Word</button>
+        <button class="get-hint" v-if="showHintButton" @click="getHint()">Get Hint</button>
+        <button class="show-word" v-if="showWordButton" @click="showWord()">Show Word</button>
       </div>
 
           <div>

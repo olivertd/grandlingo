@@ -30,7 +30,7 @@ test('Right answer on second try', async ({ page }) => {
   await expect(percentageText).toEqual('100.0 %');
 });
 
-test('One first time guess and one second time guess', async ({ page }) => {
+test('One first guess and one second guess', async ({ page }) => {
   await page.goto('http://localhost:8080/');
 
   let input = await page.locator('.card-body input');
@@ -49,6 +49,24 @@ test('One first time guess and one second time guess', async ({ page }) => {
 
   let percentageTextYellow = await page.locator('.yellow-text').textContent();
   await expect(percentageTextYellow).toEqual('50.0 %');
+});
+
+test('Click Show Word', async ({ page }) => {
+  await page.goto('http://localhost:8080/');
+
+  let input = await page.locator('.card-body input');
+
+  await input.fill('hur');
+  await page.keyboard.press('Enter');
+
+  let showWordButton = await page.locator('.show-word');
+  await showWordButton.click();
+
+  let redButton = await page.locator('.red-button');
+  await redButton.click();
+
+  let percentageTextRed = await page.locator('.red-text').textContent();
+  await expect(percentageTextRed).toEqual('100.0 %');
 });
 
 test('Wrong or no answer notification', async ({ page }) => {
