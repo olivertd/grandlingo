@@ -281,18 +281,18 @@
       width: 100%;
       margin-bottom: 16px;
     }
-    
-    .quiz-card button {
-      background-color: blue;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      padding: 8px 16px;
-      font-size: 1rem;
-      cursor: pointer;
+  
+    .notification {
+      position: fixed;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #ff0000;
+      color: #ffffff;
+      padding: 10px;
+      border-radius: 5px;
     }
     
-    .quiz-card button:hover {
-      background-color: darkblue;
-    }
+    
+
   
