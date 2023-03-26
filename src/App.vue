@@ -85,11 +85,11 @@
               <circle class="green-circle" r="5" cx="10" cy="10" fill="transparent" stroke="green" stroke-width="10"
                 :stroke-dasharray="greenDiagram()" transform="rotate(-90) translate(-20)" />
               <rect x="3" y="21" width="4" height="2" fill="green" />
-              <text x="8" y="22.5">{{ calculatePercentage("green") }} %</text>
+              <text class="green-text" x="8" y="22.5">{{ calculatePercentage("green") }} %</text>
               <rect x="3" y="24" width="4" height="2" fill="yellow" />
-              <text x="8" y="25.5">{{ calculatePercentage("yellow") }} %</text>
+              <text class="yellow-text" x="8" y="25.5">{{ calculatePercentage("yellow") }} %</text>
               <rect x="3" y="27" width="4" height="2" fill="tomato" />
-              <text x="8" y="28.5">{{ calculatePercentage("red") }} %</text>
+              <text class="red-text" x="8" y="28.5">{{ calculatePercentage("red") }} %</text>
             </svg>
           </div>
         </div>
