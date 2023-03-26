@@ -86,7 +86,7 @@
       </div>
 
           <div>
-            <svg class="circle-diagram" height="300" width="300" viewBox="0 0 20 30" style="margin: 40px;">
+            <svg class="circle-diagram" height="300" width="300" viewBox="0 0 20 30">
               <circle class="red-circle" r="10" cx="10" cy="10" fill="tomato" />
               <circle class="yellow-circle" r="5" cx="10" cy="10" fill="transparent" stroke="yellow" stroke-width="10"
                 :stroke-dasharray="yellowDiagram()" transform="rotate(-90) translate(-20)" />
@@ -153,10 +153,6 @@ export default {
     } else {
       console.error("Error: Unable to load words data.");
     }
-
-  },
-  mounted() {
-    // Do any additional setup here
 
   },
   watch: {
@@ -272,14 +268,9 @@ showWord() {
       }
       return percentage.toFixed(1);
     },
-    test(){
-      return "12 31.4";
-    }
   },
 };
 </script>
-
-
 
 <style>
 @import "@/assets/style.css";
