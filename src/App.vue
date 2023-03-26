@@ -60,17 +60,53 @@
 </template>
 
 <script>
+import wordsData from "@/assets/100words.json";
 
 export default {
   name: 'App',
   components: {
   },
+  data() {
+    return {
+      words: wordsData.words,
+      currentIndex: 0,
+      currentWord: null,
+      userTranslation: "",
+    };
+  },
+  created() {
+    this.shuffleWords();
+    this.getNextWord();
+  },
   methods: {
-  scrollToContainer3() {
-    this.$refs.container3.scrollIntoView({ behavior: 'smooth' });
-  }
-}
-}
+    scrollToContainer3() {
+      this.$refs.container3.scrollIntoView({ behavior: 'smooth' });
+    },
+    shuffleWords() {
+      // Shuffles the array of words using the Fisher-Yates algorithm
+      for (let i = this.words.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [this.words[i], this.words[j]] = [this.words[j], this.words[i]];
+      }
+    },
+    getNextWord() {
+      if (this.currentIndex < this.words.length) {
+        this.currentWord = this.words[this.currentIndex];
+        this.currentIndex++;
+      } else {
+        this.currentWord = null;
+      }
+      this.userTranslation = "";
+    },
+    checkTranslation() {
+      if (this.userTranslation.toLowerCase() === this.currentWord.english.toLowerCase()) {
+        this.getNextWord();
+      } else {
+        alert("Incorrect. Try again.");
+      }
+    },
+  },
+};
 </script>
 
 <style>
