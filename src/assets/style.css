@@ -293,6 +293,16 @@
       border-radius: 5px;
     }
     
-    
+    .green-circle .yellow-circle{
+      transition: 1s;
+    }
+
+    .red-circle{
+      transition: 1s .25s ease-in-out;
+    }
+
+    .circle-diagram text {
+      font-size: 2px;
+    }
 
   
