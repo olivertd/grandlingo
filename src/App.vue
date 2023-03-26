@@ -82,6 +82,9 @@ export default {
     };
   },
   created() {
+    if(localStorage.currentIndex){
+      this.currentIndex = localStorage.currentIndex;
+    }
   if (wordsData && typeof wordsData === 'object') {
     this.words = Object.entries(wordsData).map(([spanish, english]) => {
       return { spanish, english };
@@ -93,6 +96,12 @@ export default {
 },
   mounted() {
     // Do any additional setup here
+    
+  },
+  watch: {
+    currentIndex(newIndex) {
+      localStorage.currentIndex = newIndex;
+    }
   },
   methods: {
     scrollToContainer3() {
