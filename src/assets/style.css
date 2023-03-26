@@ -108,6 +108,10 @@
     background-color: #078a2a;
   }
 
+  .red-button {
+    background-color: red !important;
+  }
+  
   .svg-earthicon {
     animation: spin 19s linear infinite;
     max-width: 70%;
@@ -305,4 +309,16 @@
       font-size: 2px;
     }
 
+    .button-group {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    }
+    
+    .button-group button {
+      font-size: 12px;
+      padding: 5px 10px;
+    }
+    
+    
   
