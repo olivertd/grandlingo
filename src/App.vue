@@ -56,12 +56,15 @@
     </div>
     <div class="container3" ref="container3">
       <div class="quiz-card">
-      <div class="card-body">
-        <h5 class="card-title">{{ currentWord ? currentWord.spanish : '' }}</h5>
-        <input type="text" v-model="userTranslation" placeholder="Enter translation here...">
-        <p v-if="currentWord">English: {{ currentWord.english }}</p>
-        <button @click="checkTranslation">Submit</button>
-      </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ currentWord ? currentWord.english : '' }}</h5>
+          <input type="text" v-model="userTranslation" @keydown.enter="submitTranslation" placeholder="Enter translation here...">
+          <p v-if="currentWord">English: {{ currentWord.spanish }}</p>
+          <button @click="submitTranslation">Submit</button>
+          <div v-if="showNotification" class="notification">
+            {{ notificationMessage }}
+          </div>
+        </div>
     </div>
     </div>
   </body>
@@ -79,21 +82,23 @@ export default {
       currentIndex: 0,
       currentWord: null,
       userTranslation: "",
+      showNotification: false,
+      notificationMessage: "",
     };
   },
   created() {
     if(localStorage.currentIndex){
       this.currentIndex = localStorage.currentIndex;
     }
-  if (wordsData && typeof wordsData === 'object') {
-    this.words = Object.entries(wordsData).map(([spanish, english]) => {
-      return { spanish, english };
-    });
-    this.getNextWord();
-  } else {
-    console.error("Error: Unable to load words data.");
-  }
-},
+    if (wordsData && typeof wordsData === 'object') {
+      this.words = Object.entries(wordsData).map(([spanish, english]) => {
+        return { spanish, english };
+      });
+      this.getNextWord();
+    } else {
+      console.error("Error: Unable to load words data.");
+    }
+  },
   mounted() {
     // Do any additional setup here
     
@@ -108,21 +113,27 @@ export default {
       this.$refs.container3.scrollIntoView({ behavior: 'smooth' });
     },
     getNextWord() {
-  if (this.currentIndex < this.words.length) {
-    this.currentWord = this.words[this.currentIndex];
-    this.currentIndex++;
-  } else {
-    this.currentWord = null;
-  }
-  this.userTranslation = "";
-},
-checkTranslation() {
-  if (this.currentWord && this.userTranslation && this.userTranslation.toLowerCase() === this.currentWord.spanish.toLowerCase()) {
-    this.getNextWord();
-  } else {
-    alert("Incorrect. Try again.");
-  }
-}
+      if (this.currentIndex < this.words.length) {
+        this.currentWord = this.words[this.currentIndex];
+        this.currentIndex++;
+      } else {
+        this.currentWord = null;
+      }
+      this.userTranslation = "";
+    },
+    submitTranslation() {
+      if (this.currentWord && this.userTranslation && this.userTranslation.toLowerCase() === this.currentWord.spanish.toLowerCase()) {
+        this.getNextWord();
+      } else {
+        this.notificationMessage = "Incorrect. Try again.";
+        this.showNotification = true;
+        setTimeout(this.hideNotification, 3000); // Hide the notification after 3 seconds
+      }
+    },
+    hideNotification() {
+      this.showNotification = false;
+      this.notificationMessage = "";
+    }
   },
 };
 </script>
