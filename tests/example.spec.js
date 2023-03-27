@@ -21,7 +21,7 @@ test('Right answer on second try', async ({ page }) => {
 
   await input.fill('hur');
   await page.keyboard.press('Enter');
-  
+
   await input.fill('como');
   await page.keyboard.press('Enter');
 
@@ -37,7 +37,7 @@ test('One first time guess and one second time guess', async ({ page }) => {
 
   await input.fill('hur');
   await page.keyboard.press('Enter');
-  
+
   await input.fill('como');
   await page.keyboard.press('Enter');
 

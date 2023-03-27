@@ -69,21 +69,16 @@
     <div class="container3" ref="container3">
       <div class="quiz-card">
         <div class="card-body">
-      <h5 class="card-title">{{ currentWord ? currentWord.english : '' }}</h5>
-      <input
-        type="text"
-        v-model="userTranslation"
-        @keydown.enter="submitTranslation"
-        placeholder="Enter translation here..."
-      />
-      <p v-if="currentWord">English: {{ currentWord.spanish }}</p>
-      <button ref="submitButton" class="green-button" @click="submitTranslation">Submit</button>
-      <button v-if="showSkipButton" class="green-button" @click="skipWord">Skip</button>
-      <div v-if="showNotification" class="notification">{{ notificationMessage }}</div>
-      <div v-if="showHintButton || showWordButton" class="button-group">
-        <button v-if="showHintButton" @click="getHint()">Get Hint</button>
-        <button v-if="showWordButton" @click="showWord()">Show Word</button>
-      </div>
+          <h5 class="card-title">{{ currentWord ? currentWord.english : '' }}</h5>
+          <input type="text" v-model="userTranslation" @keydown.enter="submitTranslation"
+            placeholder="Enter translation here..." />
+          <button ref="submitButton" class="green-button" @click="submitTranslation">Submit</button>
+          <button v-if="showSkipButton" class="green-button" @click="skipWord">Skip</button>
+          <div v-if="showNotification" class="notification">{{ notificationMessage }}</div>
+          <div v-if="showHintButton || showWordButton" class="button-group">
+            <button v-if="showHintButton" @click="getHint()">Get Hint</button>
+            <button v-if="showWordButton" @click="showWord()">Show Word</button>
+          </div>
 
           <div>
             <svg class="circle-diagram" height="300" width="300" viewBox="0 0 20 30">
@@ -173,6 +168,7 @@ export default {
     getNextWord() {
       if (this.currentIndex < this.words.length) {
         this.currentWord = this.words[this.currentIndex];
+        localStorage.currentIndex = this.currentIndex; // add this line to update localStorage
         this.currentIndex++;
         this.firstGuess = true;
       } else {
@@ -181,60 +177,59 @@ export default {
       this.userTranslation = "";
     },
     submitTranslation() {
-  if (this.showWordRedSubmit) {
-    this.currentIndex++; // increase index if show word is clicked before submitting
-    this.showWordRedSubmit = false; // reset flag
-    this.getNextWord();
-    this.$refs.submitButton.classList.remove('red-button');
-    this.$refs.submitButton.classList.add('green-button');
-    return;
-  }
-  if (this.currentWord && this.userTranslation && this.userTranslation.toLowerCase() === this.currentWord.spanish.toLowerCase()) {
-    if (this.firstGuess) {
-      this.firstTry++;
-    } else {
-      this.secondTry++;
-    }
-    this.getNextWord();
-    this.$refs.submitButton.classList.remove('red-button');
-    this.$refs.submitButton.classList.add('green-button');
-  } else {
-    this.firstGuess = false;
-    this.notificationMessage = "Incorrect. Try again.";
-    this.showNotification = true;
-    this.showHintButton = true;
-    this.showWordButton = true;
-    setTimeout(this.hideNotification, 2000);
-  }
+      if (this.showWordRedSubmit) {
+        this.showWordRedSubmit = false; // reset flag
+        this.getNextWord();
+        this.$refs.submitButton.classList.remove('red-button');
+        this.$refs.submitButton.classList.add('green-button');
+        return;
+      }
+      if (this.currentWord && this.userTranslation && this.userTranslation.toLowerCase() === this.currentWord.spanish.toLowerCase()) {
+        if (this.firstGuess) {
+          this.firstTry++;
+        } else {
+          this.secondTry++;
+        }
+        this.getNextWord();
+        this.$refs.submitButton.classList.remove('red-button');
+        this.$refs.submitButton.classList.add('green-button');
+      } else {
+        this.firstGuess = false;
+        this.notificationMessage = "Incorrect. Try again.";
+        this.showNotification = true;
+        this.showHintButton = true;
+        this.showWordButton = true;
+        setTimeout(this.hideNotification, 2000);
+      }
     },
     hideNotification() {
       this.showNotification = false;
       this.notificationMessage = "";
     },
     getHint() {
-  // Show the first letter of the word in the input field
-  this.userTranslation = this.currentWord.spanish[0];
-  this.showWordButton = true;
-  this.$refs.submitButton.classList.remove('red-button');
-  this.$refs.submitButton.classList.add('green-button');
-},
-  
-showWord() {
-  this.userTranslation = this.currentWord.spanish;
-  this.showHintButton = false;
-  this.showWordButton = false;
-  this.$refs.submitButton.classList.remove('green-button');
-  this.$refs.submitButton.classList.add('red-button');
-  this.showWordRedSubmit = true; // set flag to true when show word is clicked
-  this.$refs.submitButton.focus(); // focus on the submit button after clicking show word
-},
-  
+      // Show the first letter of the word in the input field
+      this.userTranslation = this.currentWord.spanish[0];
+      this.showWordButton = true;
+      this.$refs.submitButton.classList.remove('red-button');
+      this.$refs.submitButton.classList.add('green-button');
+    },
+
+    showWord() {
+      this.userTranslation = this.currentWord.spanish;
+      this.showHintButton = false;
+      this.showWordButton = false;
+      this.$refs.submitButton.classList.remove('green-button');
+      this.$refs.submitButton.classList.add('red-button');
+      this.showWordRedSubmit = true; // set flag to true when show word is clicked
+      this.$refs.submitButton.focus(); // focus on the submit button after clicking show word
+    },
+
     greenDiagram() {
       let questions = 0;
       if (this.currentIndex != 0) {
         questions = this.currentIndex - 1;
       }
-      let result = (this.firstTry / questions)* 31.4
+      let result = (this.firstTry / questions) * 31.4
       return result + " 31.4";
     },
     yellowDiagram() {
@@ -245,7 +240,7 @@ showWord() {
       let green = this.firstTry / questions;
       let result = (green + this.secondTry / questions) * 31.4
       return result + " 31.4";
-      
+
     },
     calculatePercentage(color) {
       let questions = 0;

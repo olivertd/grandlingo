@@ -1,324 +1,341 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  html, body {
-    height: 100%;
-    background-color: #1b1b1e;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  /* Allt nedanför är för container 1 (landing page) */
-
-  .container1 {
-    display: grid;
-    height: 100vh;
-    background-image: url(../assets/stars.svg);
-  }
-  
-  .parent-container1 { 
-    display: grid; 
-    grid-template-columns: repeat(5, 1fr); 
-    grid-template-rows: 1fr repeat(2, 3fr) 1fr 0fr; 
-    grid-column-gap: 0px;
-    grid-row-gap: 0px; 
-    color: #e8e7dc;
-  }
-  
-  .parent-container1 .div1 { 
-    grid-area: 1 / 1 / 2 / 3;
-    display: grid;
-    place-items: center;
-  } 
-
-  .parent-container1  .div2 { 
-    grid-area: 1 / 3 / 2 / 6;
-    display: grid;
-    place-items: center;
-  } 
-  
-  .parent-container1  .div3 { 
-    grid-area: 2 / 1 / 4 / 3; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  } 
-  
-  .parent-container1 .div4 { 
-    grid-area: 2 / 3 / 4 / 6; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: small;
-    padding: 10%;
-  } 
-  
-  .parent-container1 .div5 { 
-    grid-area: 4 / 1 / 5 / 6; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #2b2b33;
-  } 
-  
-  .svg-logo {
-    width: 250px;
-  }
-  
-  .testimonial {
-    font-size: 30px;
-    margin-bottom: 10px;
-    text-align: center;
-  }
-  
-  .get-started {
-    background-color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 20px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .languages {
-    text-align: center;
-    margin: 0;
-  }
-
-  button {
-    background-color: #8ee000;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 24px;
-    margin: 40px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #078a2a;
-  }
-
-  .red-button {
-    background-color: red !important;
-  }
-  
-  .svg-earthicon {
-    animation: spin 19s linear infinite;
-    max-width: 70%;
-  }
-  
-  @keyframes spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-.svg-spanishflag {
-    width: 40px;
-    margin: 10px;
+html,
+body {
+  height: 100%;
+  background-color: #1b1b1e;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 
-@media (max-width: 720px){
+/* Allt nedanför är för container 1 (landing page) */
+
+.container1 {
+  display: grid;
+  height: 100vh;
+  background-image: url(../assets/stars.svg);
+}
+
+.parent-container1 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr repeat(2, 3fr) 1fr 0fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  color: #e8e7dc;
+}
+
+.parent-container1 .div1 {
+  grid-area: 1 / 1 / 2 / 3;
+  display: grid;
+  place-items: center;
+}
+
+.parent-container1 .div2 {
+  grid-area: 1 / 3 / 2 / 6;
+  display: grid;
+  place-items: center;
+}
+
+.parent-container1 .div3 {
+  grid-area: 2 / 1 / 4 / 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.parent-container1 .div4 {
+  grid-area: 2 / 3 / 4 / 6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: small;
+  padding: 10%;
+}
+
+.parent-container1 .div5 {
+  grid-area: 4 / 1 / 5 / 6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2b2b33;
+}
+
+.svg-logo {
+  width: 250px;
+}
+
+.testimonial {
+  font-size: 30px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.get-started {
+  background-color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.languages {
+  text-align: center;
+  margin: 0;
+}
+
+button {
+  background-color: #8ee000;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+  margin: 40px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #078a2a;
+}
+
+.red-button {
+  background-color: red !important;
+}
+
+.svg-earthicon {
+  animation: spin 19s linear infinite;
+  max-width: 70%;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.svg-spanishflag {
+  width: 40px;
+  margin: 10px;
+}
+
+
+@media (max-width: 720px) {
   .parent-container1 .div1 {
     grid-area: 1 / 1 / 2 / 6;
   }
 
 }
 
-  /* Allt nedanför är för container 2 (info page) */
-  
-  .container2 {
-    background-color: #1b1b1e;
-    height: 100vh;
-  }
-  
-  .parent-container2 { 
-    display: grid; 
-    grid-template-columns: repeat(6, 1fr); 
-    grid-template-rows: repeat(6, 1fr); 
-    grid-column-gap: 0px;
-    grid-row-gap: 0px; 
-    height: 100vh;
-    color: #e8e7dc;
-    }
-    
-.parent-container2 .div1 { grid-area: 2 / 4 / 4 / 5;} 
-.parent-container2 .div2 { grid-area: 2 / 5 / 4 / 6;} 
-.parent-container2 .div3 { grid-area: 4 / 4 / 6 / 5;} 
-.parent-container2 .div4 { grid-area: 4 / 5 / 6 / 6;} 
+/* Allt nedanför är för container 2 (info page) */
 
-.parent-container2 .div5 { 
-    grid-area: 2 / 2 / 6 / 4;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-right: 25px;
-    
-} 
+.container2 {
+  background-color: #1b1b1e;
+  height: 100vh;
+}
 
-.container2 .div5 h1{
-    color: #8ee000;
-    padding-bottom: 10px;
+.parent-container2 {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  height: 100vh;
+  color: #e8e7dc;
+}
+
+.parent-container2 .div1 {
+  grid-area: 2 / 4 / 4 / 5;
+}
+
+.parent-container2 .div2 {
+  grid-area: 2 / 5 / 4 / 6;
+}
+
+.parent-container2 .div3 {
+  grid-area: 4 / 4 / 6 / 5;
+}
+
+.parent-container2 .div4 {
+  grid-area: 4 / 5 / 6 / 6;
+}
+
+.parent-container2 .div5 {
+  grid-area: 2 / 2 / 6 / 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-right: 25px;
+
+}
+
+.container2 .div5 h1 {
+  color: #8ee000;
+  padding-bottom: 10px;
 }
 
 .card {
-    background-color: #e8e7dc;
-    border-radius: 25px;
-    box-shadow: 0px 4px 8px rgba(77, 77, 77, 0.5);
-    height: 90%;
-    margin: 5%;
-    color: #1b1b1e;
-    text-align: center;
-    padding: 10px;
-    transition: all 0.2s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .card:hover {
-    background-image: linear-gradient(to bottom right, #8ee000, #078a2a);
-    color: #fff;
-    transform: translateY(-5px);
-  }
+  background-color: #e8e7dc;
+  border-radius: 25px;
+  box-shadow: 0px 4px 8px rgba(77, 77, 77, 0.5);
+  height: 90%;
+  margin: 5%;
+  color: #1b1b1e;
+  text-align: center;
+  padding: 10px;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-  @media (max-width: 1440px){
-    .card {
-      font-size: 14px;
-    }
-  }
+.card:hover {
+  background-image: linear-gradient(to bottom right, #8ee000, #078a2a);
+  color: #fff;
+  transform: translateY(-5px);
+}
 
-  @media (max-width: 1030px){
-    .card {
-      font-size: 11px;
-    }
+@media (max-width: 1440px) {
+  .card {
+    font-size: 14px;
   }
+}
 
-  @media (max-width: 720px){
-    .container1 {
-      height: auto;
-    }
-    .container2 {
-      height: auto;
-    }
-    .parent-container2 {
-      display: grid;
-      height: auto;
-      margin: 20px;
-      align-content: center;
-      grid-template-areas: 
-        "e e"
-        "a b"
-        "c d";
-      grid-template-rows: auto 200px 200px;
-      grid-template-columns: 1fr 1fr;
-    }
-    .parent-container2 .div1{
-      grid-area: a;
-    }
-    .parent-container2 .div2{
-      grid-area: b;
-    }
-    .parent-container2 .div3{
-      grid-area: c;
-    }
-    .parent-container2 .div4{
-      grid-area: d;
-    }
-    .parent-container2 .div5{
-      grid-area: e;
-    }
+@media (max-width: 1030px) {
+  .card {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 720px) {
+  .container1 {
+    height: auto;
   }
 
-    /* Allt nedanför är för container 3 (själva quiz delen page) */
+  .container2 {
+    height: auto;
+  }
 
-    .container3 {
-      background-color: #2b2b33;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      padding: 50px;
-    }
-    
-    .quiz-card {
-      background-color: white;
-      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-      border-radius: 8px;
-      padding: 16px;
-      width: 100%;
-      max-width: 400px;
-      margin: 0 auto;
-    }
-    
-    .quiz-card h5.card-title {
-      font-size: 1.5rem;
-      margin-bottom: 16px;
-    }
-    
-    .quiz-card p {
-      margin-bottom: 16px;
-    }
-    
-    .quiz-card input[type="text"] {
-      border: none;
-      border-bottom: 2px solid gray;
-      padding: 8px;
-      font-size: 1rem;
-      width: 100%;
-      margin-bottom: 16px;
-    }
-  
-    .notification {
-      position: fixed;
-      top: 50px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #ff0000;
-      color: #ffffff;
-      padding: 10px;
-      border-radius: 5px;
-    }
-    
-    .green-circle .yellow-circle{
-      transition: 1s;
-    }
+  .parent-container2 {
+    display: grid;
+    height: auto;
+    margin: 20px;
+    align-content: center;
+    grid-template-areas:
+      "e e"
+      "a b"
+      "c d";
+    grid-template-rows: auto 200px 200px;
+    grid-template-columns: 1fr 1fr;
+  }
 
-    .red-circle{
-      transition: 1s .25s ease-in-out;
-    }
+  .parent-container2 .div1 {
+    grid-area: a;
+  }
 
-    .circle-diagram text {
-      font-size: 2px;
-    }
+  .parent-container2 .div2 {
+    grid-area: b;
+  }
 
-    .button-group {
-      display: flex;
-      justify-content: center;
-      text-align: center;
-    }
-    
-    .button-group button {
-      font-size: 12px;
-      padding: 5px 10px;
-    }
-    
-    
-  
+  .parent-container2 .div3 {
+    grid-area: c;
+  }
+
+  .parent-container2 .div4 {
+    grid-area: d;
+  }
+
+  .parent-container2 .div5 {
+    grid-area: e;
+  }
+}
+
+/* Allt nedanför är för container 3 (själva quiz delen page) */
+
+.container3 {
+  background-color: #2b2b33;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 50px;
+}
+
+.quiz-card {
+  background-color: white;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 16px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.quiz-card h5.card-title {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+
+.quiz-card p {
+  margin-bottom: 16px;
+}
+
+.quiz-card input[type="text"] {
+  border: none;
+  border-bottom: 2px solid gray;
+  padding: 8px;
+  font-size: 1rem;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.notification {
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ff0000;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.green-circle .yellow-circle {
+  transition: 1s;
+}
+
+.red-circle {
+  transition: 1s .25s ease-in-out;
+}
+
+.circle-diagram text {
+  font-size: 2px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.button-group button {
+  font-size: 12px;
+  padding: 5px 10px;
+}
